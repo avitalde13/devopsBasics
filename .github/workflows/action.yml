@@ -11,6 +11,10 @@ jobs:
               docker build . -t avitalde/avidocker --platform=linux/amd64
               echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
               docker push avitalde/avidocker
+      - name: Test
+        run: |
+            docker run -d -p 3000:3000 avitalde/avidocker:latest
+            bash test.sh
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
