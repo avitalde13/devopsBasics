@@ -9,6 +9,7 @@ jobs:
       - name: build
         run: | 
               docker build . -t avitalde/avidocker --platform=linux/amd64
+              echo "${{ secrets.DOCKER_PASSWORD }}" | docker login docker.pkg.github.com -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
               docker push avitalde/avidocker
       - name: List files in the repository
         run: |
