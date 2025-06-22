@@ -7,7 +7,8 @@ var movies = [
     {
         name: "AvitaliTheExplorer",
         genre: "Action",
-        year: "1995"
+        year: "1995",
+        country: "Japan"
     }
 ]
 

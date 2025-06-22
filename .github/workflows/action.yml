@@ -1,0 +1,13 @@
+name: Avidocker pipline
+on: [push]
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo shilshalti  
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+
