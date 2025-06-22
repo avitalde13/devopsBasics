@@ -4,9 +4,12 @@ jobs:
   build-test-deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo shilshalti  
       - name: Check out repository code
         uses: actions/checkout@v4
+      - name: build
+        run: | 
+              docker build . -t avitalde/avidocker --platform=linux/amd64
+              docker push avitalde/avidocker
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
